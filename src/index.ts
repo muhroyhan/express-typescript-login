@@ -1,14 +1,18 @@
 import express, { Request, Response } from 'express';
-const app = express();
-const {
-  PORT = 3000,
-} = process.env;
+import dbConfig from './config/db_config';
+import routes from './routes'
 
-app.get('/', (req: Request, res: Response) => {
-  res.send({
-    message: 'hello',
-  });
-});
+const { PORT = 3000 } = process.env;
+
+dbConfig()
+
+const app = express();
+
+app.get('/', (req: Request, res: Response) =>
+  res.send({ message: 'home api' })
+);
+
+app.use('/api', routes);
 
 if (require.main === module) { // true if file is executed
     app.listen(PORT, () => {

@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const WebpackShellPlugin = require('webpack-shell-plugin-alt');
 
 const { NODE_ENV = 'production' } = process.env;
-console.log(NODE_ENV)
+
 module.exports = {
   entry: './src/index.ts',
   externals: [ nodeExternals() ],
