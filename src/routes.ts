@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from 'express';
-import signup from './api/signup';
+import user from './api/user';
 const app = express();
 
 const router: Router = express.Router()
@@ -7,6 +7,9 @@ const router: Router = express.Router()
 router.route('/').get((req: Request, res: Response) =>
     res.send({ message: 'gate api' })
 );
-router.route('/user/create').get(signup.createUser)
+
+router.route('/users').get(user.getUsers)
+router.route('/user').get(user.getUser)
+router.route('/user/create').post(user.createUser)
 
 export default router;

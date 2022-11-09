@@ -10,4 +10,12 @@ describe('app', () => {
     request.get('/')
       .expect(200, done);
   });
+  it('should return a successful response for GET /users', done => {
+    request.get('/users')
+      .expect(200, done);
+  });
+  it('should return a successful response for GET /user', done => {
+    request.get('/user')
+      .expect(200, done);
+  });
 });
